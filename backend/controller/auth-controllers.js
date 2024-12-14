@@ -68,42 +68,69 @@ const login = async (req, res) =>{
     }
 }
 
-
-const createExpenses = async (req, res) =>{
-  
-    try{
-    //  const {userId} = req.user;
-    const {title, description, amount, category } = req.body;
-
-    if(!title || !description){
-      return res.status(400).json({message: "Title and description must be filled"})
-    }
-
-   
-
-    const expensesCreate = await Expense.create({ title, description, amount, category});
-    return res.status(200).json({message: "Expenses Added!"});
-
-    }catch(error){
-      console.error(error);
-      return res.status(500).json({ message: "Internal server error", error: error.message });
-    }
-}
-
-const getExpenses = async (req,res) =>{
+const user = async (req, res) =>{
   try {
-    const expenses = await Expense.find();
 
-    if(!expenses){
-      return res.status(400).json({message: "No expenses at the moment"});
-    }
-
-    return res.status(200).json({expenses});
-
-  } catch (error) {
-    console.error(error);
-    
+      const userData = req.user;
+      console.log(userData);
+      return res.status(200).json({userData})
+      
+      } catch (error) {
+      console.error(error)
   }
 }
 
-module.exports = { home, register, login , createExpenses, getExpenses};
+
+const createExpenses = async (req, res) => {
+  try {
+    const userId = req.user._id; 
+    const { title, description, amount, category } = req.body;
+
+ 
+    if (!title || !description || !amount || !category) {
+      return res.status(400).json({ message: "All fields (title, description, amount, category) are required." });
+    }
+
+    const newExpense = await Expense.create({
+      title,
+      description,
+      amount,
+      category,
+      userId, 
+    });
+
+  
+    await User.findByIdAndUpdate(
+      userId,
+      { $push: { expenses: newExpense._id } },
+      { new: true } 
+    );
+
+    return res.status(200).json({ message: "Expense added successfully!", expense: newExpense });
+  } catch (error) {
+    console.error(error);
+    return res.status(500).json({ message: "Internal server error", error: error.message });
+  }
+};
+
+
+const getExpenses = async (req, res) => {
+  try {
+
+    const userId = req.user._id;
+
+    const expenses = await Expense.find({ userId });
+
+    if (!expenses || expenses.length === 0) {
+      return res.status(404).json({ message: "No expenses found for this user." });
+    }
+
+    return res.status(200).json({ expenses });
+  } catch (error) {
+    console.error(error);
+    return res.status(500).json({ message: "Internal server error", error: error.message });
+  }
+};
+
+
+module.exports = { home, register, login , createExpenses, getExpenses, user};
