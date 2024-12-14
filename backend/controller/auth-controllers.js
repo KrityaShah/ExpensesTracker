@@ -40,4 +40,30 @@ const register = async (req, res) => {
   }
 };
 
-module.exports = { home, register };
+
+const login = async (req, res) =>{
+    try {
+        const {email, password} = req.body;
+
+        const userExist = await User.findOne({email})
+
+        if(!userExist){
+            return res.status(400).json({message: "Invalid, Please try it later"});
+        }
+        const isPasswordValid = await bcrypt.compare(password, userExist.password );
+        
+        if(isPasswordValid){
+            return res.status(200).json({
+                  message: "Login sucessfull",
+                  token : await userExist.generateToken(),
+                  userId: userExist._id.toString(),
+              })
+          }else{
+            return res.status(401).json({message: "invalid Credentail"});
+          }
+    } catch (error) {
+        console.error(error);
+        
+    }
+}
+module.exports = { home, register, login };
