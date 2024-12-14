@@ -41,6 +41,11 @@
     transition: background-color 0.3s;
 }
 
+.nav-link {
+    text-decoration: none;
+}
+
+
 .Main-NavContainer ul li:hover {
     background-color: #3283a8;
     color: white;
