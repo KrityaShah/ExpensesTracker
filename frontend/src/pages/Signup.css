@@ -9,6 +9,9 @@
     background-color: #d1cfcf;
     border-radius: 30px;
 }
+.signup-container:has(.error) {
+    height: 560px; 
+}
 
 .signup-container h1 {
     text-align: center;

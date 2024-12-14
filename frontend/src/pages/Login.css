@@ -10,6 +10,9 @@
     border-radius: 30px;
 }
 
+.Login-Container:has(.error) {
+    height: 450px; 
+}
 .Login-Container h1 {
     text-align: center;
     margin: 20px 0px;
