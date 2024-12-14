@@ -68,7 +68,6 @@ const Dashboard = () => {
                   <option value="Travel">Travel</option>
                   <option value="Shopping">Shopping</option>
                   <option value="Bills">Bills</option>
-                  <option value="Other">Other</option>
                 </select>
               </div>
               <div className="form-actions">
