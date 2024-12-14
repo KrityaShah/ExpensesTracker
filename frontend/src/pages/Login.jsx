@@ -33,12 +33,12 @@ const Login = () => {
         // console.log("response from server", res_data);
         storeTokenInLS(res_data.token);
         
-        // navigate("/home2"); 
+        navigate("/dashboard"); 
         alert("Sucessfull login");
-        console.log(res);
+        console.log(res_data);
       }else{
         alert("Invalid credentail");
-        console.log(res)
+        console.log(res_data)
       }
     } catch (error) {
       console.error(error);
