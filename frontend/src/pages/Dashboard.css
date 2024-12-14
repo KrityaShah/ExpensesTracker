@@ -63,7 +63,7 @@
     font-size: 2rem;
   }
   
-  /* Form styles */
+
   .form-group {
     margin-bottom: 15px;
     text-align: left;
@@ -85,7 +85,7 @@
     font-size: 1rem;
   }
   
-  /* Form actions */
+
   .form-actions {
     display: flex;
     justify-content: space-between;
