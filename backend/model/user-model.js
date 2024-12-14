@@ -1,5 +1,6 @@
 const mongoose = require('mongoose');
 const jwt = require("jsonwebtoken");
+const Expense = require('./expense-model')
 
 const userSchema = new mongoose.Schema({
     username: {

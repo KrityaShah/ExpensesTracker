@@ -1,5 +1,6 @@
 const User = require("../model/user-model");
 const bcrypt = require("bcryptjs");
+const Expense = require('../model/expense-model')
 
 const home = async (req, res) => {
   try {
@@ -68,15 +69,41 @@ const login = async (req, res) =>{
 }
 
 
-// const expensesCreate = async (req, res) =>{
+const createExpenses = async (req, res) =>{
   
-//     try{
-     
-//     }catch(error){
-//       console.error(error);
-      
-//     }
-// }
+    try{
+    //  const {userId} = req.user;
+    const {title, description, amount, category } = req.body;
 
+    if(!title || !description){
+      return res.status(400).json({message: "Title and description must be filled"})
+    }
 
-module.exports = { home, register, login };
+   
+
+    const expensesCreate = await Expense.create({ title, description, amount, category});
+    return res.status(200).json({message: "Expenses Added!"});
+
+    }catch(error){
+      console.error(error);
+      return res.status(500).json({ message: "Internal server error", error: error.message });
+    }
+}
+
+const getExpenses = async (req,res) =>{
+  try {
+    const expenses = await Expense.find();
+
+    if(!expenses){
+      return res.status(400).json({message: "No expenses at the moment"});
+    }
+
+    return res.status(200).json({expenses});
+
+  } catch (error) {
+    console.error(error);
+    
+  }
+}
+
+module.exports = { home, register, login , createExpenses, getExpenses};
