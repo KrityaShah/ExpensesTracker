@@ -14,15 +14,37 @@ const Signup = () => {
         formState: { errors, isSubmitting },
       } = useForm()
 
-    //   const navigate = useNavigate(); 
+      const navigate = useNavigate(); 
    
       
       const onSubmit = async (data) => {
       
+        if (data.password !== data.repassword) {
+          
+          console.log("Passwords do not match");
+          return;
+        }
 
         try {
-            console.log(data);
-            
+          let response = await fetch("http://localhost:5000/api/auth/register", {
+            method: "POST", 
+            headers: {
+              "Content-Type": "application/json"
+            },
+            body: JSON.stringify(data)
+          });
+          
+
+          if (response.ok) {
+            const res_data = await response.json()
+            alert("Register succesfull")
+            navigate("/"); 
+            console.log(res_data );
+          } else {
+            const error_data = await response.json()
+            console.log(error_data);
+            alert(error_data.message);
+          }
           
         } catch (error) {
           console.error(error);

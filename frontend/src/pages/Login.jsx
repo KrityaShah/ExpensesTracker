@@ -3,6 +3,7 @@ import { useForm } from "react-hook-form";
 import { useNavigate } from "react-router-dom";
 import Navbar from "../component/Navbar";
 import "./Login.css";
+import { useAuth } from "../store/auth"
 
 const Login = () => {
   const {
@@ -13,11 +14,32 @@ const Login = () => {
     formState: { errors, isSubmitting },
   } = useForm();
 
-//   const navigate = useNavigate();
+  const navigate = useNavigate();
+  const {storeTokenInLS} = useAuth();
 
   const onSubmit = async (data) => {
     try {
-      console.log(data);
+    
+      const  response = await fetch("http://localhost:5000/api/auth/login", {
+        method: "POST", 
+        headers: {
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify(data)
+      });
+      
+      if (response.ok) {
+        let res_data = await response.json();
+        // console.log("response from server", res_data);
+        storeTokenInLS(res_data.token);
+        
+        // navigate("/home2"); 
+        alert("Sucessfull login");
+        console.log(res);
+      }else{
+        alert("Invalid credentail");
+        console.log(res)
+      }
     } catch (error) {
       console.error(error);
     }
