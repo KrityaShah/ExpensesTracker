@@ -1,0 +1,138 @@
+.Login-Container {
+    display: flex;
+    flex-direction: column;
+    height: 400px;
+    justify-content: center;
+    align-items: center;
+    width: 500px;
+    margin: 70px auto;
+    background-color: #d1cfcf;
+    border-radius: 30px;
+}
+
+.Login-Container h1 {
+    text-align: center;
+    margin: 20px 0px;
+}
+
+.Login-Container form {
+    display: flex;
+    border: none;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.Login-Container form input {
+    padding: 15px;
+    border-radius: 20px;
+    border: none;
+    text-align: center;
+    margin: 10px 0px;
+}
+
+.Login-Container form input:hover {
+    border: 1px solid #3283a8;
+}
+
+.Login-Container form .login-btn {
+    padding: 10px 60px;
+    border: none;
+    border-radius: 20px;
+    cursor: pointer;
+    color: #3283a8;
+}
+
+.Login-Container form .login-btn:hover {
+    background-color: #3283a8;
+    color: white;
+}
+
+
+@media (max-width: 480px) {
+    .Login-Container {
+        width: 90%;
+        height: auto;
+        margin: 50px auto;
+        padding: 20px;
+    }
+
+    .Login-Container h1 {
+        font-size: 1.5rem;
+    }
+
+    .Login-Container form input {
+        width: 100%;
+        font-size: 1rem;
+    }
+
+    .Login-Container form .login-btn {
+        width: 100%;
+        font-size: 1rem;
+        padding: 10px;
+    }
+}
+
+
+@media (max-width: 768px) {
+    .Login-Container {
+        width: 80%;
+        height: auto;
+        margin: 60px auto;
+        padding: 20px;
+    }
+
+    .Login-Container h1 {
+        font-size: 1.8rem;
+    }
+
+    .Login-Container form input {
+        width: 100%;
+        font-size: 1rem;
+    }
+
+    .Login-Container form .login-btn {
+        width: auto;
+        padding: 10px 50px;
+    }
+}
+
+
+@media (max-width: 834px) {
+    .Login-Container {
+        width: 70%;
+        height: auto;
+        margin: 70px auto;
+        padding: 30px;
+    }
+
+    .Login-Container h1 {
+        font-size: 2rem;
+    }
+
+    .Login-Container form input {
+        width: 90%;
+    }
+}
+
+@media (max-width: 1024px) {
+    .Login-Container {
+        width: 60%;
+        height: auto;
+        margin: 80px auto;
+        padding: 40px;
+    }
+
+    .Login-Container h1 {
+        font-size: 2.2rem;
+    }
+
+    .Login-Container form input {
+        width: 80%;
+    }
+
+    .Login-Container form .login-btn {
+        width: auto;
+        padding: 12px 60px;
+    }
+}
