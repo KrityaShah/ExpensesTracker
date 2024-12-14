@@ -1,0 +1,130 @@
+.Main-Dashboard-Container {
+    background: url('../assets/wave.svg') no-repeat bottom center;
+    background-size: cover;
+    height: 575px;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.Main-Dashboard-Container h1 {
+    font-weight: bolder;
+    font-size: 6rem;
+}
+
+.Main-Dashboard-Container h4 {
+    font-weight: bolder;
+    font-size: 2rem;
+}
+
+.Main-Dashboard-Container .dashboard-btn button {
+    height: 30px;
+    width: 80px;
+    border: none;
+    border-radius: 30px;
+    color: #3283a8;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.Main-Dashboard-Container .dashboard-btn button:hover {
+    background-color: #3283a8;
+    color: white;
+}
+
+
+
+@media (max-width: 480px) {
+    .Main-Dashboard-Container {
+        height: auto;
+        padding: 20px;
+    }
+
+    .Main-Dashboard-Container h1 {
+        font-size: 3rem;
+        text-align: center;
+    }
+
+    .Main-Dashboard-Container h4 {
+        font-size: 1.2rem;
+        text-align: center;
+    }
+
+    .Main-Dashboard-Container .dashboard-btn button {
+        height: 40px;
+        width: 100px;
+        font-size: 0.8rem;
+    }
+}
+
+
+@media (max-width: 768px) {
+    .Main-Dashboard-Container {
+        height: auto;
+        padding: 30px;
+    }
+
+    .Main-Dashboard-Container h1 {
+        font-size: 4rem;
+        text-align: center;
+    }
+
+    .Main-Dashboard-Container h4 {
+        font-size: 1.5rem;
+        text-align: center;
+    }
+
+    .Main-Dashboard-Container .dashboard-btn button {
+        height: 45px;
+        width: 120px;
+        font-size: 1rem;
+    }
+}
+
+@media (max-width: 834px) {
+    .Main-Dashboard-Container {
+        height: auto;
+        padding: 40px;
+    }
+
+    .Main-Dashboard-Container h1 {
+        font-size: 4.5rem;
+        text-align: center;
+    }
+
+    .Main-Dashboard-Container h4 {
+        font-size: 1.8rem;
+        text-align: center;
+    }
+
+    .Main-Dashboard-Container .dashboard-btn button {
+        height: 50px;
+        width: 140px;
+        font-size: 1.1rem;
+    }
+}
+
+
+@media (max-width: 1024px) {
+    .Main-Dashboard-Container {
+        height: auto;
+        padding: 50px;
+    }
+
+    .Main-Dashboard-Container h1 {
+        font-size: 5rem;
+        text-align: center;
+    }
+
+    .Main-Dashboard-Container h4 {
+        font-size: 2rem;
+        text-align: center;
+    }
+
+    .Main-Dashboard-Container .dashboard-btn button {
+        height: 50px;
+        width: 150px;
+        font-size: 1.2rem;
+    }
+}
