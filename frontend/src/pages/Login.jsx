@@ -52,7 +52,7 @@ const Login = () => {
             <div className="error">{errors.password.message}</div>
           )}
 
-          <input className="login-btn" disabled={isSubmitting} type="submit" value="login" />
+          <input className="login-btn" disabled={isSubmitting} type="submit" value="submit" />
         </form>
       </div>
     </>
