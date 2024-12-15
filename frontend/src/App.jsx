@@ -1,6 +1,7 @@
 import Dashboard from "./pages/Dashboard";
 import Expenses from "./pages/Expenses";
 import Login from "./pages/Login"
+import Profile from "./pages/Profile";
 import Signup from "./pages/Signup"
 import {
   BrowserRouter as Router,
@@ -20,10 +21,11 @@ function App() {
           <Route path="/signup" element={<><Signup/></>} />
           <Route path="/dashboard" element={<><Dashboard/></>} />
           <Route path="/expenses" element={<><Expenses/></>} />
+          <Route path="/profile" element={<> <Profile/></>} />
         </Routes>
       </Router>
 
-      
+     
     </>
   )
 }
