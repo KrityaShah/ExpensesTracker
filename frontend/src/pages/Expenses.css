@@ -1,0 +1,101 @@
+.Expenses-Head{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 30px;
+}
+
+.Expenses-Head-Total{
+    background-color: #3283a8;
+    color: white;
+    margin: 30px 0px 10px 0px;
+    height: 80px;
+    width: 200px;
+    text-align: center;
+    padding: 20px;
+}
+
+.Expenses-Body {
+    margin: 20px 0;
+    padding: 0 20px;
+    overflow-x: auto; 
+  }
+  
+  .Expenses-Body table {
+    width: 100%;
+    border-collapse: collapse;
+    font-family: Arial, sans-serif;
+  }
+  
+  .Expenses-Body table th,
+  .Expenses-Body table td {
+    padding: 12px 15px;
+    text-align: left;
+    border: 1px solid #ddd;
+    font-size: 16px; 
+  }
+  
+  .Expenses-Body table th {
+    background-color: #f4f4f4;
+    font-weight: bold;
+    color: #333;
+  }
+  
+  .Expenses-Body table tr:nth-child(even) {
+    background-color: #f9f9f9;
+  }
+  
+  .Expenses-Body table tr:hover {
+    background-color: #f1f1f1;
+  }
+  
+  .Expenses-Body table td button {
+    background-color: #3283a8;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    padding: 5px 10px;
+    cursor: pointer;
+  }
+  
+  .Expenses-Body table td button:hover {
+    background-color: #3283a8;
+  }
+  
+
+  @media (max-width: 1024px) {
+    .Expenses-Body table th, .Expenses-Body table td {
+      font-size: 14px;
+    }
+  }
+  
+  @media (max-width: 834px) {
+    .Expenses-Body table th, .Expenses-Body table td {
+      font-size: 13px;
+      padding: 10px;
+    }
+  }
+  
+  @media (max-width: 768px) {
+    .Expenses-Body table th, .Expenses-Body table td {
+      font-size: 12px;
+      padding: 8px;
+    }
+    .Expenses-Body table td button {
+      padding: 4px 8px;
+      font-size: 12px;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .Expenses-Body table th, .Expenses-Body table td {
+      font-size: 11px;
+      padding: 6px;
+    }
+    .Expenses-Body table td button {
+      padding: 3px 6px;
+      font-size: 11px;
+    }
+  }
+  

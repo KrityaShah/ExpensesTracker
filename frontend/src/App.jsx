@@ -1,4 +1,5 @@
 import Dashboard from "./pages/Dashboard";
+import Expenses from "./pages/Expenses";
 import Login from "./pages/Login"
 import Signup from "./pages/Signup"
 import {
@@ -18,6 +19,7 @@ function App() {
           <Route path="/" element={<><Login/></>} />
           <Route path="/signup" element={<><Signup/></>} />
           <Route path="/dashboard" element={<><Dashboard/></>} />
+          <Route path="/expenses" element={<><Expenses/></>} />
         </Routes>
       </Router>
 
