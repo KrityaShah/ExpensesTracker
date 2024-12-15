@@ -11,5 +11,5 @@ router.route('/login').post(authControllers.login)
 router.route('/user').get(authMiddleware, authControllers.user);
 router.route('/createExpenses').post(authMiddleware, authControllers.createExpenses)
 router.route('/getExpenses').get(authMiddleware, authControllers.getExpenses);
-
+router.route('/getExpenses/delete/:id').delete(authMiddleware, authControllers.deleteExpensesById);
 module.exports = router;
