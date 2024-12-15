@@ -5,11 +5,12 @@ import "./Expenses.css";
 const Expenses = () => {
   const [expenses, setExpenses] = useState([]);
   const [total, setTotal] = useState(0);
+  const [token, setToken] = useState(localStorage.getItem("token"))
 
   useEffect(() => {
     const fetchExpenses = async () => {
       try {
-        const token = localStorage.getItem("token");
+        // const token = localStorage.getItem("token");
 
         const response = await fetch(
           "http://localhost:5000/api/auth/getExpenses",
@@ -41,6 +42,37 @@ const Expenses = () => {
     fetchExpenses();
   }, []);
 
+
+  const deleteExpenses = async (id) =>{
+  try {
+    const response = await fetch(`http://localhost:5000/api/auth/getExpenses/delete/${id}`, {
+      method: "DELETE",
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
+    });
+    const data = response.json();
+    console.log(data);
+
+    if(response.ok){
+      alert("Deleted!")
+      
+     setExpenses((prevExpenses) =>
+      prevExpenses.filter((expense) => expense._id !== id)
+    );
+
+    setTotal((prevTotal) =>
+      prevTotal - parseFloat(expenses.find((expense) => expense._id === id).amount)
+    );
+    }
+    
+  } catch (error) {
+    console.error(error);
+    
+  }
+    
+  }
+
   return (
     <>
       <Navbar />
@@ -71,7 +103,7 @@ const Expenses = () => {
                   <td>{expense.category}</td>
                   <td>{new Date(expense.createdAt).toLocaleDateString()}</td>
                   <td>
-                    <button>Delete</button>
+                    <button onClick={() => { deleteExpenses(expense._id)}}>Delete</button>
                   </td>
                 </tr>
               ))}
