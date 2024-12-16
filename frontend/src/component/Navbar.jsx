@@ -23,7 +23,7 @@ const Navbar = () => {
             <Link to="/expenses" className="nav-link">
               <li>Expenses</li>
             </Link>
-            <Link to="" className="nav-link">
+            <Link to="/logout" className="nav-link">
               <li>Logout</li>
             </Link>
           </ul>
